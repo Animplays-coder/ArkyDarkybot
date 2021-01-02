@@ -7,6 +7,17 @@ client = commands.Bot(command_prefix='>')
 
 
 class MyClient(discord.Client):
+    async def report(self, ctx, user : discord.Member, *reason):
+    channel = bot.get_channel(786280823397023700) 
+    author = ctx.message.author
+    rearray = ' '.join(reason[:]) 
+    if not rearray: 
+        await channel.send(f"{author} has reported {user}, reason: Not provided")
+        await ctx.message.delete() 
+    else:
+        await channel.send(f"{author} has reported {user}, reason: {rearray}")
+        await ctx.message.delete()
+    
     async def on_ready():
         await client.change_presence(status=discord.Status.online, activity=discord.Game('the prefix > | >help'))
         print("Bot is connecting...\n")
@@ -38,4 +49,3 @@ client = MyClient()
 with open('token.txt','r') as my_token:
     token = my_token.read()
 client.run(token)
-
