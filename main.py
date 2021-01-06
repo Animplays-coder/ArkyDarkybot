@@ -77,6 +77,6 @@ async def ban(ctx, member: discord.Member, *, reason=None):
 
 
 
-token = os.getenv("Nzk0MDUwMDQ5NzAwMDAzODcw.X-1KvA.3LVKsvun1wI54M1WGAKLHEbAnYw")
+token = os.getenv("BOT_TOKEN")
 bot.run(token)
 © 2021 GitHub, Inc.
